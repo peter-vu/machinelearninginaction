@@ -32,9 +32,9 @@ def gradAscent(dataMatIn, classLabels):
         weights = weights + alpha * dataMatrix.transpose() * error
     return weights
 
-def plotBestFit(weight):
+def plotBestFit(weights):
     import matplotlib.pyplot as plt
-    weights = weight.getA()
+    #weights = weight.getA()
     dataMat, labelMat = loadDataSet()
     dataArr = array(dataMat)
     n = shape(dataArr)[0]
@@ -50,7 +50,7 @@ def plotBestFit(weight):
     ax.scatter(xcord1, ycord1, s=30, c='red', marker='s')
     ax.scatter(xcord2, ycord2, s=30, c='green')
     x = arange(-3.0, 3.0, 0.1)
-    y = (-weight[0] - weight[1] * x)/weights[2]
+    y = (-weights[0] - weights[1] * x)/weights[2]
     ax.plot(x,mat(y).transpose())
     plt.xlabel('X1');plt.ylabel('X2')
     plt.show()
